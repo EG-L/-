@@ -1,0 +1,14 @@
+class Solution:
+    def countOdds(self, low: int, high: int) -> int:
+        import math
+        t = 0
+        if low%2 == 1 and high%2 == 1:
+            t = math.ceil((high-low)/2)-1
+            t+=2
+        elif (low%2 == 1 and high%2 == 0) or (low%2 == 0 and high%2 == 1):
+            t = math.ceil((high-low)/2)-1
+            t+=1
+        else:
+            t = math.ceil((high-low)/2)
+        
+        return t
