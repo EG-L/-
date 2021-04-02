@@ -1,0 +1,21 @@
+class Solution:
+    def balancedStringSplit(self, s: str) -> int:
+        s = [i for i in s]
+        temp = []
+        answer = 0
+        while True:
+            k = s.pop(0)
+            if len(s) == 0:
+                break
+            elif k == "R":
+                if temp.count("R") == temp.count("L"):
+                    answer+=1
+                    temp = []
+                temp.append("R")
+            elif k == "L":
+                if temp.count("R") == temp.count("L"):
+                    answer+=1
+                    temp = []
+                temp.append("L")
+
+        return answer
