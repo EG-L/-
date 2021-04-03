@@ -1,0 +1,17 @@
+class Solution:
+    def freqAlphabets(self, s: str) -> str:
+        s = [i for i in s]
+        answer = ""
+        while True:
+            if len(s) == 0:
+                break
+            elif "#" not in s:
+                answer+=chr(int("".join(s[0]))+96)
+                del s[0]
+            elif s[2] == "#":
+                answer+=chr(int("".join(s[:2]))+96)
+                del s[:3]
+            else:
+                answer+=chr(int("".join(s[0]))+96)
+                del s[0]
+        return answer
