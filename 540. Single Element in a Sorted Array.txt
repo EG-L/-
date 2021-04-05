@@ -1,0 +1,8 @@
+class Solution:
+    def singleNonDuplicate(self, nums: List[int]) -> int:
+        from collections import Counter
+
+
+        for x,y in list(Counter(nums).items()):
+            if y==1:
+                return x
