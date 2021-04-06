@@ -1,0 +1,20 @@
+class Solution:
+    def displayTable(self, orders: List[List[str]]) -> List[List[str]]:
+        answer = [sorted(list(set(orders[i][2] for i in range(len(orders)))))]
+        answer[0].insert(0,'Table')
+
+        temp = sorted(list(set(int(i[1]) for i in orders)))
+
+        k = 1
+        for i in temp:
+            answer.append([str(i)])
+            for j in answer[0][1:]:
+                answer[k].append("0")
+            k+=1
+        for i in orders:
+            for j in range(len(answer)):
+                if answer[j][0] == i[1]:
+                    temp = str(int(answer[j][answer[0].index(i[2])])+1)
+                    answer[j][answer[0].index(i[2])] = temp
+
+        return answer
